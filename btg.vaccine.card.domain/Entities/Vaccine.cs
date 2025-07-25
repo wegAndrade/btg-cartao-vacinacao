@@ -1,0 +1,8 @@
+﻿namespace btg.cartao.vacina.domain.Entities
+{
+    public class Vaccine
+    {
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+    }
+}

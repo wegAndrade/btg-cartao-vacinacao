@@ -1,0 +1,6 @@
+@btg.cartao.vacina_HostAddress = http://localhost:5011
+
+GET {{btg.cartao.vacina_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
