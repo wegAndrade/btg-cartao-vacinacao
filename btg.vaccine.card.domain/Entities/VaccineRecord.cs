@@ -4,10 +4,10 @@
     {
         public VaccineRecord() { }
 
-        public Guid IdPessoa { get; set; }
-        public Guid Vacina { get; set; }
-        public int Doses { get; set; }
-        public DateTime DataAplicacao { get; set; }
-        public DateTime DataAtualizacao { get; set; }
+        public Guid PersonId { get; set; }
+        public Guid VaccineId { get; set; }
+        public int Applications { get; set; }
+        public DateTime ApplicationDate { get; set; }
+        public DateTime UpdateDate { get; set; }
     }
 }

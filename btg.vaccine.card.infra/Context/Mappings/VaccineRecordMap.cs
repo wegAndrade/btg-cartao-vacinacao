@@ -9,32 +9,32 @@ namespace btg.vaccine.card.infra.Context.Mappings
         public void Configure(EntityTypeBuilder<VaccineRecord> builder)
         {
             builder.ToTable(nameof(VaccineRecord));
-            builder.HasKey(vr => vr.Id);
+            builder.HasKey(vr => new { vr.PersonId, vr.VaccineId });
             
-            builder.Property(vr => vr.IdPessoa)
+            builder.Property(vr => vr.PersonId)
                 .IsRequired();
                 
-            builder.Property(vr => vr.Vacina)
+            builder.Property(vr => vr.VaccineId)
                 .IsRequired();
                 
-            builder.Property(vr => vr.Doses)
+            builder.Property(vr => vr.Applications)
                 .IsRequired();
                 
-            builder.Property(vr => vr.DataAplicacao)
+            builder.Property(vr => vr.ApplicationDate)
                 .IsRequired();
                 
-            builder.Property(vr => vr.DataAtualizacao)
+            builder.Property(vr => vr.UpdateDate)
                 .IsRequired();
 
             // Relacionamentos
             builder.HasOne<Person>()
                 .WithMany()
-                .HasForeignKey(vr => vr.IdPessoa)
+                .HasForeignKey(vr => vr.PersonId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne<Vaccine>()
                 .WithMany()
-                .HasForeignKey(vr => vr.Vacina)
+                .HasForeignKey(vr => vr.VaccineId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }
