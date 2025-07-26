@@ -1,0 +1,46 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: btg-vaccine-sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=vacccine@Passw0rd
+      - MSSQL_PID=Express
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+    networks:
+      - btg-vaccine-network  
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P vacccine@Passw0rd -Q 'SELECT 1' || exit 1"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 30s
+
+  btg.vaccine.card.api:
+    image: ${DOCKER_REGISTRY-}btgvaccinecardapi
+    container_name: btg-vaccine-api
+    build:
+            dockerfile: ./btg.vaccine.card.api/Dockerfile
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__Default=Server=sqlserver,1433;Database=btg_vaccine_db;User Id=sa;Password=vacccine@Passw0rd;TrustServerCertificate=true;MultipleActiveResultSets=true
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+    networks:
+      - btg-vaccine-network
+    restart: unless-stopped
+
+volumes:
+  sqlserver_data:
+    driver: local
+
+networks:
+  btg-vaccine-network:
+    driver: bridge

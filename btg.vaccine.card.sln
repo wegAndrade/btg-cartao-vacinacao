@@ -3,19 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35219.272
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "btg.vaccine.card.api", "btg.vaccine.card\btg.vaccine.card.api.csproj", "{9ECEFB38-57D7-455F-B5DD-C7CFBC372533}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domian", "3 - Domian", "{1BCC0B12-AA74-4B8D-9F88-314CED0B05AA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domian", "Domian", "{1BCC0B12-AA74-4B8D-9F88-314CED0B05AA}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{0F52317F-BE03-4923-BF3D-9296188C77D1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1- Web", "1- Web", "{0F52317F-BE03-4923-BF3D-9296188C77D1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "btg.vaccine.card.domain", "btg.vaccine.card.domain\btg.vaccine.card.domain.csproj", "{89626F08-AD7B-4AEA-ADA5-788738E93697}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{719746F8-86F2-4FD2-96FC-F3101F4933B6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 -Infra", "4 -Infra", "{719746F8-86F2-4FD2-96FC-F3101F4933B6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "btg.vaccine.card.infra.data", "btg.vaccine.card.infra\btg.vaccine.card.infra.data.csproj", "{545BBD0C-7673-4547-85BA-97D237014D22}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{E01F4AA4-9D54-4D63-9AAC-520229390D22}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{E01F4AA4-9D54-4D63-9AAC-520229390D22}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "btg.vaccine.card.application", "btg.vaccine.card.application\btg.vaccine.card.application.csproj", "{E062880C-7BBD-4D5C-AA16-8AF609537605}"
 EndProject
@@ -23,16 +21,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9D86C39B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "btg.vaccine.card.unitTests", "btg.vaccine.card.unitTests\btg.vaccine.card.unitTests.csproj", "{D4B5BCAD-663C-4C88-ADD2-6B13B7C9C06A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "btg.vaccine.card.api", "btg.vaccine.card.api\btg.vaccine.card.api.csproj", "{1DCA6F34-BE20-B52B-34EA-A6C07AA5E560}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Enviroment", "0 - Enviroment", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		btg.vaccine.card.api\Dockerfile = btg.vaccine.card.api\Dockerfile
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9ECEFB38-57D7-455F-B5DD-C7CFBC372533}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9ECEFB38-57D7-455F-B5DD-C7CFBC372533}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9ECEFB38-57D7-455F-B5DD-C7CFBC372533}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9ECEFB38-57D7-455F-B5DD-C7CFBC372533}.Release|Any CPU.Build.0 = Release|Any CPU
 		{89626F08-AD7B-4AEA-ADA5-788738E93697}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{89626F08-AD7B-4AEA-ADA5-788738E93697}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89626F08-AD7B-4AEA-ADA5-788738E93697}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -49,16 +51,20 @@ Global
 		{D4B5BCAD-663C-4C88-ADD2-6B13B7C9C06A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4B5BCAD-663C-4C88-ADD2-6B13B7C9C06A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4B5BCAD-663C-4C88-ADD2-6B13B7C9C06A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DCA6F34-BE20-B52B-34EA-A6C07AA5E560}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DCA6F34-BE20-B52B-34EA-A6C07AA5E560}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DCA6F34-BE20-B52B-34EA-A6C07AA5E560}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DCA6F34-BE20-B52B-34EA-A6C07AA5E560}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{9ECEFB38-57D7-455F-B5DD-C7CFBC372533} = {0F52317F-BE03-4923-BF3D-9296188C77D1}
 		{89626F08-AD7B-4AEA-ADA5-788738E93697} = {1BCC0B12-AA74-4B8D-9F88-314CED0B05AA}
 		{545BBD0C-7673-4547-85BA-97D237014D22} = {719746F8-86F2-4FD2-96FC-F3101F4933B6}
 		{E062880C-7BBD-4D5C-AA16-8AF609537605} = {E01F4AA4-9D54-4D63-9AAC-520229390D22}
 		{D4B5BCAD-663C-4C88-ADD2-6B13B7C9C06A} = {9D86C39B-A306-4266-A33F-8DA379FBA479}
+		{1DCA6F34-BE20-B52B-34EA-A6C07AA5E560} = {0F52317F-BE03-4923-BF3D-9296188C77D1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AB4CAF86-0E61-40C5-AE19-D9CC2F2C8C64}
