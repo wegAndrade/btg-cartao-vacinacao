@@ -6,6 +6,14 @@ namespace btg.cartao.vacina.infra.Context
 {
     public class AppDbContext : DbContext
     {
+        public AppDbContext(DbContextOptions options) : base(options)
+        {
+        }
+
+        protected AppDbContext()
+        {
+        }
+
         public DbSet<Person> People { get; set; }
         public DbSet<Vaccine> Vaccines { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

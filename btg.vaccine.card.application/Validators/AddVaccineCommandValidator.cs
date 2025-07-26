@@ -9,7 +9,9 @@ namespace btg.vaccine.card.application.Validators
 
             RuleFor(r => r.Name)
                 .NotEmpty()
-                .WithMessage("Para registrar a vacina informe um nome");
+                .WithMessage(ValidatorMessages.NameIsNullOrEmptyMessage)
+                .MaximumLength(50)
+                .WithMessage(ValidatorMessages.NameIsTooLong);
                 
            
         }

@@ -7,7 +7,7 @@ namespace btg.vaccine.card.application.Adapters
     {
         public static Vaccine ToModel(this AddVaccineCommand command)
         {
-            if (command == null)
+            if (command == null )
                 return null;
 
             var model = new Vaccine()
