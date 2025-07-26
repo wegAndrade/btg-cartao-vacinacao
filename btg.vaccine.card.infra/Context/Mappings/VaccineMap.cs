@@ -10,7 +10,9 @@ namespace btg.vaccine.card.infra.Context.Mappings
         {
             builder.ToTable(nameof(Vaccine));
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Name);
+            builder.Property(x => x.Name)
+                .IsRequired()
+                .HasMaxLength(50);
         }
     }
 }
