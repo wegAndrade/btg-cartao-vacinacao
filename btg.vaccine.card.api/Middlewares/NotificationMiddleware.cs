@@ -14,16 +14,16 @@ namespace btg.vaccine.card.api.Middlewares
 
         public async Task InvokeAsync(HttpContext context, NotificationContext notificationContext)
         {
-            if (!notificationContext.HasNotifications)
-                await _next(context);
-               
-           
-            context.Response.StatusCode = StatusCodes.Status400BadRequest;
-            context.Response.ContentType = "application/json";
+            await _next(context);
 
-            var json = JsonSerializer.Serialize(notificationContext.Notifications);
-            await context.Response.WriteAsync(json);
-            await _next(context);    
+            if (notificationContext.HasNotifications)
+            {
+                context.Response.StatusCode = StatusCodes.Status400BadRequest;
+                context.Response.ContentType = "application/json";
+
+                var json = JsonSerializer.Serialize(notificationContext.Notifications);
+                await context.Response.WriteAsync(json);
+            }
         }
     }
 

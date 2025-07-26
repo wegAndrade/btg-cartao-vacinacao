@@ -7,7 +7,7 @@ namespace btg.vaccine.card.api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class VaccinesController(IMediator mediator, ILogger logger) : ControllerBase
+    public class VaccinesController(IMediator mediator, ILogger<VaccinesController> logger) : ControllerBase
     {
 
 

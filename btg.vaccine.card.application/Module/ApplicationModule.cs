@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace btg.vaccine.card.application.Module
 {
@@ -6,13 +7,12 @@ namespace btg.vaccine.card.application.Module
     {
         public static IServiceCollection AddApplicationModule(this IServiceCollection services)
         {
-
-            services.AddMediatR(new MediatRServiceConfiguration()
+            services.AddMediatR(cfg => 
             {
-                AutoRegisterRequestProcessors = true,
+                cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
             });
 
             return services;
         }
     }
-}
+} 
